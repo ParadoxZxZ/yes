@@ -115,6 +115,9 @@ public:
             trisProjected.p[1].x += 1.0f; trisProjected.p[1].y += 1.0f;
             trisProjected.p[2].x += 1.0f; trisProjected.p[2].y += 1.0f;
             
+            trisProjected.p[0].x *= 0.5f * (float)ScreenWidth();
+            trisProjected
+
 
             DrawTriangle(triProjected.p[0].x, triProjected.p[0].y,
                 triProjected.p[1].x, triProjected.p[1].y,
