@@ -102,6 +102,27 @@ public:
     {
         Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
 
+        
+        mat4x4 matRotX, matRotZ;
+        fTheta += 1.0f * fElapsedTime;
+        
+        //Rotation Z
+        matRotZ.m[0][0] = cosf(fTheta);
+        matRotZ.m[0][1] = sinf(fTheta);
+        matRotZ.m[1][0] = -sinf(fTheta);
+        matRotZ.m[1][1] = cosf(fTheta);
+        matRotZ.m[2][2] = 1;
+        matRotZ.m[3][3] = 1;
+
+        //Rotation X
+        matRotX.m[0][0] = 1;
+        matRotX.m[0][1] = cosf(fTheta);
+        matRotX.m[1][0] = sinf(fTheta);
+        matRotX.m[1][1] = -sinf(fTheta);
+        matRotX.m[2][2] = cosf(fTheta);
+        matRotX.m[3][3] = 1;
+        
+
         //Draw Triangles
         for(auto tri : meshCube.tris)
         {
