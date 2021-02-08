@@ -116,17 +116,22 @@ public:
 
         //Rotation X
         matRotX.m[0][0] = 1;
-        matRotX.m[0][1] = cosf(fTheta);
-        matRotX.m[1][0] = sinf(fTheta);
-        matRotX.m[1][1] = -sinf(fTheta);
-        matRotX.m[2][2] = cosf(fTheta);
+        matRotX.m[0][1] = cosf(fTheta * 0.5f);
+        matRotX.m[1][0] = sinf(fTheta * 0.5f);
+        matRotX.m[1][1] = -sinf(fTheta * 0.5f);
+        matRotX.m[2][2] = cosf(fTheta * 0.5f);
         matRotX.m[3][3] = 1;
         
 
         //Draw Triangles
         for(auto tri : meshCube.tris)
         {
-            triangle triProjected, triTranslated;
+            triangle triProjected, triTranslated, triRotatedX, triRotatedZ;
+            
+            MultiplyMatrixVector(tri.p[0], triRotatedZ.p[0], matRotZ);
+            MultiplyMatrixVector(tri.p[1], triRotatedZ.p[1], matRotZ);
+            MultiplyMatrixVector(tri.p[2], triRotatedZ.p[2], matRotZ);
+            
             
             triTranslated = tri;
             triTrnaslated.p[0].z = tri.p[0].z + 3.0f;
