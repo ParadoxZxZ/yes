@@ -109,6 +109,9 @@ public:
             MultiplyMatrixVector(tri.p[0], triProjected.p[0], matProj);
             MultiplyMatrixVector(tri.p[1], triProjected.p[1], matProj);
             MultiplyMatrixVector(tri.p[2], triProjected.p[2], matProj);
+            
+            
+            triProjected.p[0].x += 1.0f;
 
             DrawTriangle(triProjected.p[0].x, triProjected.p[0].y,
                 triProjected.p[1].x, triProjected.p[1].y,
