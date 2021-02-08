@@ -146,6 +146,7 @@ public:
             MultiplyMatrixVector(triTranslated.p[1], triProjected.p[1], matProj);
             MultiplyMatrixVector(triTranslated.p[2], triProjected.p[2], matProj);
             
+            
             //Scale to view
             trisProjected.p[0].x += 1.0f; trisProjected.p[0].y += 1.0f;
             trisProjected.p[1].x += 1.0f; trisProjected.p[1].y += 1.0f;
